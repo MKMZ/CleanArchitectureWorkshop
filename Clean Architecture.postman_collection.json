@@ -1,0 +1,98 @@
+{
+	"info": {
+		"_postman_id": "f21a026a-03e3-4ee3-95df-b555eaadcad3",
+		"name": "Clean Architecture",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Give Trigger",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"GiverId\": \"3a77148e-fb30-4375-9720-f58e0144c0ca\",\n\t\"ReceiverId\": \"8d829dd1-e9c9-4bb4-839a-0404f04ee0c1\",\n\t\"MoneyType\": \"Giving\",\n\t\"Amount\": 50,\n\t\"Currency\": \"PLN\",\n\t\"Description\": \"Some description\"\n}"
+				},
+				"url": {
+					"raw": "https://localhost:44384/api/trigger/giveTrigger",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44384",
+					"path": [
+						"api",
+						"trigger",
+						"giveTrigger"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Setup Company Trigger Order",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"CompanyId\": \"a77d6aee-256f-4a89-96a6-24122bc10893\",\n\t\"Amount\": 50,\n\t\"Currency\": \"PLN\",\n\t\"Description\": \"Some description\"\n}"
+				},
+				"url": {
+					"raw": "https://localhost:44384/api/trigger/setupCompanyTriggerOrder",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44384",
+					"path": [
+						"api",
+						"trigger",
+						"setupCompanyTriggerOrder"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Test",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "https://localhost:44384/api/trigger",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44384",
+					"path": [
+						"api",
+						"trigger"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

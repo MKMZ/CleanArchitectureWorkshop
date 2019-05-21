@@ -1,0 +1,18 @@
+@startuml acyclic
+scale 2
+
+
+folder Presenters
+folder Controllers
+folder Services
+folder Repositories
+folder Resolvers
+
+(Presenters).>(Controllers)
+(Controllers).>(Services)
+(Services).>(Repositories)
+(Services).>(Resolvers)
+(Resolvers).>(Controllers)
+
+
+@enduml

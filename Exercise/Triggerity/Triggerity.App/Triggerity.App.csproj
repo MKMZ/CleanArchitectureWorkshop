@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Amadevus.RecordGenerator" Version="0.4.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Triggerity.Definitions\Triggerity.Definitions.csproj" />
+    <ProjectReference Include="..\Triggerity.Domain\Triggerity.Domain.csproj" />
+  </ItemGroup>
+
+</Project>
