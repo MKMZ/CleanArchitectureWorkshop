@@ -1,8 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using Triggerity.Domain;
 
-namespace Triggerity.App.Ports
+namespace Triggerity.Domain
 {
     public interface IPersonRepository
     {

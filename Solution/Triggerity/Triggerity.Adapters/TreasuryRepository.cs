@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Triggerity.App.Ports;
 using Triggerity.Domain;
 
 namespace Triggerity.Adapters

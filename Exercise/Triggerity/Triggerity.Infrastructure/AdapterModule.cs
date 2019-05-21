@@ -1,6 +1,6 @@
 ﻿using Autofac;
 using Triggerity.Adapters;
-using Triggerity.App.Ports;
+using Triggerity.Domain;
 
 namespace Triggerity.Infrastructure
 {

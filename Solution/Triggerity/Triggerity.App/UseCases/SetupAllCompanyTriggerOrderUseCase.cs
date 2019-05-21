@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Threading.Tasks;
-using Triggerity.App.Ports;
 using Triggerity.Definitions;
 using Triggerity.Domain;
 using Triggerity.Domain.Exceptions;
