@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Immutable;
 using System.Linq;
 using Triggerity.Definitions;
+using Triggerity.Domain.Exceptions;
 
 namespace Triggerity.Domain
 {
@@ -9,38 +11,34 @@ namespace Triggerity.Domain
     public class TriggerOrder
     {
         public string Description { get; }
-        public IList<Trigger> Triggers { get; private set; }
-        public Billing Billing { get; private set; }
+        public IImmutableList<Trigger> Triggers { get; private set; }
+        public DateTime ScheduledDate { get; private set; }
 
         public TriggerOrder(string description, CompanyIdentifier companyIdentifier, Currency currency)
         {
             Description = description;
-            Triggers = new List<Trigger>();
-            Billing = new Billing(Money.Zero(currency), companyIdentifier);
+            Triggers = ImmutableList.Create<Trigger>();
+            ScheduledDate = DateTime.UtcNow + TimeSpan.FromSeconds(5);
         }
 
         public TriggerOrder(string description, IList<Trigger> triggers, Billing billing)
         {
             Description = description;
-            Triggers = triggers;
-            Billing = billing;
+            Triggers = ImmutableList.CreateRange(triggers);
+            ScheduledDate = DateTime.UtcNow + TimeSpan.FromSeconds(5);
         }
 
         public void AddTrigger(Trigger trigger)
         {
-            Money.ValidCurrencies(trigger.Money, Billing.Money);
-            Triggers.Add(trigger);
-            UpdateBilling();
+            Triggers = Triggers.Add(trigger);
         }
-
-        private void UpdateBilling()
+        public void SetScheduledDate(DateTime newDate)
         {
-            Money billingMoney = Money.Zero(Billing.Money.Currency);
-            foreach (var trigger in Triggers)
+            if (newDate < DateTime.UtcNow)
             {
-                billingMoney += trigger.Money;
+                throw new DomainException("Scheduled date cannot be earlier than now");
             }
-            Billing = new Billing(billingMoney, Billing.CompanyIdentifier);
+            ScheduledDate = newDate;
         }
     }
 }

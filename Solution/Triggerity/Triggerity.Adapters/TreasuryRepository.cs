@@ -27,5 +27,10 @@ namespace Triggerity.Adapters
         {
             return Task.CompletedTask;
         }
+
+        public Task UpdateMultiple(IList<Treasury> treasuries)
+        {
+            return Task.CompletedTask;
+        }
     }
 }

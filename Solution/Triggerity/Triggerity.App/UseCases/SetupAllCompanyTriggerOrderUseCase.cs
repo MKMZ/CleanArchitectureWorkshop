@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
 using Triggerity.Definitions;
 using Triggerity.Domain;
@@ -43,11 +44,14 @@ namespace Triggerity.App.UseCases
                 triggerOrder.AddTrigger(trigger);
                 treasury.ReceiveTrigger(trigger);
             }
-            if (!company.CanPay(triggerOrder.Billing))
+            var billingStrategy = new BillingPerTriggerOrder();
+            var billing = billingStrategy.CreateBilling(triggerOrder, company).First();
+
+            if (!company.CanPay(billing))
             {
                 throw new DomainException($"{company.Identifier.Id} cannot pay for trigger order");
             }
-            company.Pay(triggerOrder.Billing);
+            company.Pay(billing);
 
             await _companyRepository.Update(company);
             await _triggerOrderRepository.Save(triggerOrder);

@@ -17,8 +17,7 @@ namespace Triggerity.Domain.Tests
             new Feature()
                 .Given(f => f.CreateEmptyTriggerOrderWithCurrency(Currency.PLN))
                 .When(f => f.AddTriggerWithMoney(new Money(20, Currency.PLN)))
-                .Then(f => f.ShouldGenerateBillingWithMoney(new Money(20, Currency.PLN)))
-                    .And(f => f.ShouldContainNumberOfTriggers(1))
+                .Then(f => f.ShouldContainNumberOfTriggers(1))
                 .BDDfy();
         }
 
@@ -30,8 +29,7 @@ namespace Triggerity.Domain.Tests
                 .When(f => f.AddTriggerWithMoney(new Money(20, Currency.PLN)))
                     .And(f => f.AddTriggerWithMoney(new Money(50, Currency.PLN)))
                     .And(f => f.AddTriggerWithMoney(new Money(10, Currency.PLN)))
-                .Then(f => f.ShouldGenerateBillingWithMoney(new Money(80, Currency.PLN)))
-                    .And(f => f.ShouldContainNumberOfTriggers(3))
+                .Then(f => f.ShouldContainNumberOfTriggers(3))
                 .BDDfy();
         }
 
@@ -40,20 +38,7 @@ namespace Triggerity.Domain.Tests
         {
             new Feature()
                 .When(f => f.CreateEmptyTriggerOrderWithCurrency(Currency.PLN))
-                .Then(f => f.ShouldGenerateBillingWithMoney(new Money(0, Currency.PLN)))
-                    .And(f => f.ShouldContainNumberOfTriggers(0))
-                .BDDfy();
-        }
-
-        [TestMethod]
-        public void TriggerWithWrongCurrencyIsNotAccepted()
-        {
-            new Feature()
-                .Given(f => f.CreateEmptyTriggerOrderWithCurrency(Currency.PLN))
-                    .And(f => f.AddTriggerWithMoney(new Money(20, Currency.PLN)))
-                .When(f => f.TryAddTriggerWithMoneyUnsuccessfully(new Money(10, Currency.EUR)))
-                .Then(f => f.ShouldGenerateBillingWithMoney(new Money(20, Currency.PLN)))
-                    .And(f => f.ShouldContainNumberOfTriggers(1))
+                .Then(f => f.ShouldContainNumberOfTriggers(0))
                 .BDDfy();
         }
 
@@ -79,19 +64,6 @@ namespace Triggerity.Domain.Tests
 
                 triggerOrder.AddTrigger(trigger);
                 triggers.Add(trigger);
-            }
-
-            internal void TryAddTriggerWithMoneyUnsuccessfully(Money money)
-            {
-                var trigger = PrepareTriggerWithMoney(money);
-
-                Action action = () => triggerOrder.AddTrigger(trigger);
-                action.Should().Throw<DomainException>().WithMessage("Currencies must be equal to perform operation");
-            }
-
-            internal void ShouldGenerateBillingWithMoney(Money money)
-            {
-                triggerOrder.Billing.Money.Should().BeEquivalentTo(money);
             }
 
             internal void ShouldContainNumberOfTriggers(int count)

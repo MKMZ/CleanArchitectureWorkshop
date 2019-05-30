@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using Triggerity.Definitions;
 
 namespace Triggerity.Domain
 {

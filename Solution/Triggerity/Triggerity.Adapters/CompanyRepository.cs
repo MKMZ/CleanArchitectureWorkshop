@@ -4,7 +4,7 @@ using Triggerity.Domain;
 
 namespace Triggerity.Adapters
 {
-    class CompanyRepository
+    internal class CompanyRepository
         : ICompanyRepository
     {
         public Task<Company> GetCompanyById(CompanyIdentifier companyIdentifier)
