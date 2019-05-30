@@ -1,8 +1,10 @@
 ﻿using System.Collections.Generic;
+using Triggerity.Definitions;
 using Triggerity.Domain.Exceptions;
 
 namespace Triggerity.Domain
 {
+    [Aggregate]
     public class Company
     {
         public static readonly IDictionary<Currency, Money> MaximumDebit = new Dictionary<Currency, Money> {

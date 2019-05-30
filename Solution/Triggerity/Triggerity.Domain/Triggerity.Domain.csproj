@@ -8,4 +8,8 @@
     <PackageReference Include="Amadevus.RecordGenerator" Version="0.4.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Triggerity.Definitions\Triggerity.Definitions.csproj" />
+  </ItemGroup>
+
 </Project>

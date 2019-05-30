@@ -1,8 +1,10 @@
 ﻿using System.Diagnostics.CodeAnalysis;
+using Triggerity.Definitions;
 using Triggerity.Domain.Exceptions;
 
 namespace Triggerity.Domain
 {
+    [ValueObject]
     [Record, ExcludeFromCodeCoverage]
     public partial class Money
     {
@@ -52,12 +54,17 @@ namespace Triggerity.Domain
             return (a.Currency == b.Currency);
         }
 
-        private static void ValidCurrencies(Money a, Money b)
+        public static void ValidCurrencies(Money a, Money b)
         {
             if (!AreCurrenciesMatch(a, b))
             {
                 throw new DomainException("Currencies must be equal to perform operation");
             }
+        }
+
+        public override string ToString()
+        {
+            return $"{Amount} {Currency}";
         }
     }
 }

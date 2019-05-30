@@ -1,7 +1,9 @@
-﻿using Triggerity.Domain.Exceptions;
+﻿using Triggerity.Definitions;
+using Triggerity.Domain.Exceptions;
 
 namespace Triggerity.Domain
 {
+    [Aggregate]
     public class Treasury
     {
         public PersonIdentifier PersonIdentifier { get; }

@@ -1,8 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using Triggerity.Definitions;
 
 namespace Triggerity.Domain
 {
+    [Aggregate]
     public class TriggerOrder
     {
         public string Description { get; }
@@ -25,6 +28,7 @@ namespace Triggerity.Domain
 
         public void AddTrigger(Trigger trigger)
         {
+            Money.ValidCurrencies(trigger.Money, Billing.Money);
             Triggers.Add(trigger);
             UpdateBilling();
         }

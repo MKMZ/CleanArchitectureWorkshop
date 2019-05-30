@@ -11,9 +11,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Triggerity.Domain", "Trigge
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Triggerity.App", "Triggerity.App\Triggerity.App.csproj", "{BDE9F74C-B1FA-45C7-A917-3477BEC344ED}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Triggerity.Adapters", "Triggerity.Adapters\Triggerity.Adapters.csproj", "{599AD76A-E56D-46AF-96D0-FDD33FE23091}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Triggerity.Adapters", "Triggerity.Adapters\Triggerity.Adapters.csproj", "{599AD76A-E56D-46AF-96D0-FDD33FE23091}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Triggerity.Definitions", "Triggerity.Definitions\Triggerity.Definitions.csproj", "{7B06F305-B9F4-40FC-9CB9-34A42FDCA17D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Triggerity.Definitions", "Triggerity.Definitions\Triggerity.Definitions.csproj", "{7B06F305-B9F4-40FC-9CB9-34A42FDCA17D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Triggerity.Domain.Tests", "Triggerity.Domain.Tests\Triggerity.Domain.Tests.csproj", "{512E5C3F-6321-4C84-851E-E32C0F6CCAFB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Triggerity.App.Tests", "Triggerity.App.Tests\Triggerity.App.Tests.csproj", "{1A49E5E1-CDE5-4D4F-8C4E-D8F18C46E116}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +49,14 @@ Global
 		{7B06F305-B9F4-40FC-9CB9-34A42FDCA17D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7B06F305-B9F4-40FC-9CB9-34A42FDCA17D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7B06F305-B9F4-40FC-9CB9-34A42FDCA17D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{512E5C3F-6321-4C84-851E-E32C0F6CCAFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{512E5C3F-6321-4C84-851E-E32C0F6CCAFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{512E5C3F-6321-4C84-851E-E32C0F6CCAFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{512E5C3F-6321-4C84-851E-E32C0F6CCAFB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A49E5E1-CDE5-4D4F-8C4E-D8F18C46E116}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A49E5E1-CDE5-4D4F-8C4E-D8F18C46E116}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A49E5E1-CDE5-4D4F-8C4E-D8F18C46E116}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A49E5E1-CDE5-4D4F-8C4E-D8F18C46E116}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

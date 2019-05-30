@@ -51,11 +51,7 @@ namespace Triggerity.App.UseCases
 
             await _companyRepository.Update(company);
             await _triggerOrderRepository.Save(triggerOrder);
-
-            foreach (var treasury in treasuries)
-            {
-                await _treasuryRepository.Update(treasury);
-            }
+            await _treasuryRepository.UpdateMultiple(treasuries);
         }
     }
 }

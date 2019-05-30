@@ -1,5 +1,8 @@
-﻿namespace Triggerity.Domain
+﻿using Triggerity.Definitions;
+
+namespace Triggerity.Domain
 {
+    [Aggregate]
     public class Person
     {
         public PersonIdentifier Identifier { get; }
